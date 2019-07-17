@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.test.iBATIS</groupId>
+	<artifactId>iBATIS-Example</artifactId>
+	<packaging>jar</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<dependencies>
+		
+		
+		<!-- https://mvnrepository.com/artifact/com.ibatis/ibatis2-common -->
+		<dependency>
+			<groupId>com.ibatis</groupId>
+			<artifactId>ibatis2-common</artifactId>
+			<version>2.1.7.597</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.ibatis/ibatis2-sqlmap -->
+		<dependency>
+			<groupId>com.ibatis</groupId>
+			<artifactId>ibatis2-sqlmap</artifactId>
+			<version>2.1.7.597</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.ibatis/ibatis2-dao -->
+		<dependency>
+		    <groupId>com.ibatis</groupId>
+		    <artifactId>ibatis2-dao</artifactId>
+		    <version>2.1.7.597</version>
+		</dependency>
+
+
+
+
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.13</version>
+		</dependency>
+	</dependencies>
+</project>

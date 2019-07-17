@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="User"> 
+
+   <insert id="insertUser" parameterClass="com.test.iBATIS.User">
+      insert into User(first_name, last_name, email)
+      values (#first_name#, #last_name#, #email#)
+
+      <selectKey resultClass="int" keyProperty="id">
+         select last_insert_id() as id
+      </selectKey>
+   </insert> 
+   
+   <select id="getAllUsers" resultClass="com.test.iBATIS.User">
+      SELECT * FROM USER
+   </select>
+   
+   <update id="updateUser" parameterClass="com.test.iBATIS.User">
+      UPDATE USER
+      SET    last_name = #last_name#
+      WHERE  id = #id#
+   </update>
+   
+   <delete id="deleteUser" parameterClass="int">
+      DELETE FROM USER
+      WHERE  id = #id#
+   </delete>
+   
+   <!-- Using ResultMap -->
+   <resultMap id="resultUser" class="com.test.iBATIS.User">
+      <result property="id" column="id"/>
+      <result property="first_name" column="first_name"/>
+      <result property="last_name" column="last_name"/>
+      <result property="email" column="email"/>
+   </resultMap> 
+	
+   <select id="userResultMap" resultMap="resultUser">
+      SELECT * FROM User
+      WHERE id=#id#
+   </select>
+   
+   <!-- To call stored procedure. -->
+   <procedure id="getUserById" resultClass="com.test.iBATIS.User">
+      { call getUserById( #userId# ) } 
+   </procedure>
+	
+   <select id="findUserByID" resultClass="com.test.iBATIS.User">
+      SELECT * FROM USER
+		
+      <dynamic prepend="WHERE ">
+         <isNull property="id">
+            id IS NULL
+         </isNull>
+			
+         <isNotNull property="id">
+            id = #id#
+         </isNotNull>
+      </dynamic>
+		
+   </select>
+    
+
+</sqlMap>
